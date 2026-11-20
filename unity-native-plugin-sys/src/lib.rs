@@ -8,6 +8,11 @@
 
 include!("plugin_api_core.rs");
 
+#[cfg(feature = "audio")]
+pub mod audio {
+    include!("plugin_api_audio.rs");
+}
+
 #[cfg(windows)]
 include!("plugin_api_windows.rs");
 

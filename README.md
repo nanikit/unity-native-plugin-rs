@@ -11,6 +11,7 @@ Unity Native Plugin API for Rust
 unity-native-plugin = { version = "*", features = ["d3d11"] }
 
 # * Support features
+#    * audio - Unity native audio effects
 #    * d3d11 - IUnityGraphicsD3D11
 #    * d3d12 - IUnityGraphicsD3D12
 #    * vulkan - IUnityGraphicsVulkan
@@ -30,6 +31,7 @@ The graphics features are gated by both a feature flag **and** a target `cfg`:
 | `metal` | Apple platforms (`cfg(target_vendor = "apple")`) |
 | `vulkan` | Cross-platform |
 | `profiler` | Cross-platform |
+| `audio` | Cross-platform |
 
 Enabling a feature on a non-matching platform compiles silently as a no-op — the flag is accepted but the corresponding module (`unity_native_plugin::d3d11`, `unity_native_plugin::metal`, etc.) will not be present. This is intentional so that you can write a single `Cargo.toml` such as:
 
@@ -61,6 +63,7 @@ let intf = unity_native_plugin::interface::UnityInterfaces::get()
 
 ## Examples
 
+* [Native audio effect](./unity-native-plugin/examples/audio_gain.rs) — enable `audio` for the raw SDK types in `unity_native_plugin::audio` and the single-effect registration macro `unity_native_plugin::unity_audio_effect!`.
 * [unity-native-plugin-sample](./unity-native-plugin-sample)
 * [Native code (Rust) rendering plugin example for Unity](https://github.com/aosoft/unity-native-rendering-plugin-example-rs) - a port of ["C++ Rendering Plugin example for Unity"](https://github.com/Unity-Technologies/NativeRenderingPlugin)
 * [Event tracing example for unity](./unity-native-plugin-sample-profiler) - similar to ["TraceEventProfiler from Unity-Technologies"](https://github.com/Unity-Technologies/TraceEventProfiler)

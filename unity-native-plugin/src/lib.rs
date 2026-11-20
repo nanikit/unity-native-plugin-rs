@@ -1,5 +1,8 @@
 #![allow(clippy::missing_safety_doc)]
 
+#[cfg(feature = "audio")]
+pub mod audio;
+
 macro_rules! define_unity_interface {
     ($s:ident, $intf:ty, $guid_high:expr, $guid_low:expr) => {
         #[derive(Clone, Copy)]

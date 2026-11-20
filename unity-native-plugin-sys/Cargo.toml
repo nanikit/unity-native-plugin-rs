@@ -12,6 +12,7 @@ categories = ["api-bindings", "game-engines"]
 keywords = ["unity", "ffi"]
 include = [
     "**/*.rs",
+    "sdk/audio/LICENSE",
     "Cargo.toml",
     "../LICENSE",
     "../LICENSE_UnityNativePluginAPI.md",
@@ -22,6 +23,7 @@ include = [
 
 [features]
 default = []
+audio = []
 vulkan = []
 
 [dependencies]

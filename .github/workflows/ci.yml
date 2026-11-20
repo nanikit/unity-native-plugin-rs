@@ -32,3 +32,9 @@ jobs:
 
       - name: Test
         run: cargo test --workspace
+
+      - name: Test the audio plugin with the SDK host
+        run: |
+          cmake -S tests/audio -B target/audio-host
+          cmake --build target/audio-host --config Debug
+          ctest --test-dir target/audio-host -C Debug --output-on-failure
